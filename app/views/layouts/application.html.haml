@@ -2,12 +2,58 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title MamaApp
+    %title Praise
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css", :rel => "stylesheet"}/
+    %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js", :type => "text/javascript"}
+    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js", :type => "text/javascript"}
+
   %body
-    %p.notice= notice
-    %p.alert= alert
+    %header.header
+      %h2.header_pageTitle P R A I S E
+      .dropdown
+        = image_tag 'default-avatar.png', class: 'header_avatar dropbtn'
+        .dropdown-content
+          %a{:href => "#"} プロフィール
+          %a{:href => "#"} ログアウト
+    %header.header_second
+      = image_tag 'header.png', class: 'header_cat'
+      %p.header_pageTitle_second ようこそ PRAISEへ!
+      %p.header_text みんなで褒めあおう！ 
+      生きてくれてありがとう
+      君がいてくれてよかった
+    .card
+      .card_detail
+        = image_tag 'default-avatar.png'
+        %div
+          %p yamachan
+          %p 2020/9/9
+      .card_image
+        = image_tag 'sample.png'
+      .card_content
+        .card_heart
+          = image_tag 'heart.svg'          
+          %span 23
+    .container_menu
+      .tabs
+        .tabs_item.active
+          .tabs_icon
+            = image_tag 'article.png'
+            新着記事
+        .tabs_item
+          .tabs_icon
+            = image_tag 'mypage.png'
+            タイムラ
+        .tabs_item
+          .tabs_icon
+            = image_tag 'new.png'
+            投稿
+
+       
+    
     = yield
+
