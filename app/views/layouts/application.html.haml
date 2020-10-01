@@ -31,11 +31,13 @@
             = image_tag 'mypage.png'
             タイムラ
         .tabs_item
-          .tabs_icon
-            = image_tag 'new.png'
-            投稿
-
-       
-    
+          = link_to new_board_path do    
+            .tabs_icon
+              = image_tag 'new.png'      
+              投稿
+    - if flash.present?
+      .flash
+        - flash.each do |key, value|
+          %div{:class => key}= value
     = yield
 
