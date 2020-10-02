@@ -5,7 +5,7 @@
     %p yamachan
     %p 2020/09/22
     .board_edit
-      %a{:href => "#"} 編集する
+      = link_to '編集する', edit_board_path(@board)
   %h1.board_title
     = @board.name  
   .board_content
