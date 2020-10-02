@@ -1,0 +1,14 @@
+.container
+  - @board.errors.full_messages.each do |message|
+    %li.error_message= message
+  = form_with(model: @board, url: boards_path, method: 'post', local: true) do |f|
+    %div.form_area
+      %div
+        = f.label :name, 'タイトル',class: 'form_text'
+      %div
+        = f.text_field :name, class: 'form_title'
+      %div
+        = f.label :description, '呟きたいこと',class: 'form_text'
+      %div
+        = f.text_area :description, class: 'form_description'
+      = f.submit '投稿する', class: 'btn_prymary'

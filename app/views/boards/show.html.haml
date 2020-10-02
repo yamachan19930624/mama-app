@@ -1,0 +1,14 @@
+.board
+  .board_detail
+    = image_tag 'default-avatar.png'
+  %div
+    %p yamachan
+    %p 2020/09/22
+    .board_edit
+      %a{:href => "#"} 編集する
+  %h1.board_title
+    = @board.name  
+  .board_content
+    = @board.description
+  .board_heart
+    = image_tag 'heart.svg'
