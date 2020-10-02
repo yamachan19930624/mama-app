@@ -1,0 +1,23 @@
+%header.header_second
+  = image_tag 'header.png', class: 'header_cat'
+  %p.header_pageTitle_second ようこそ PRAISEへ!
+  %p.header_text みんなで褒めあおう！ 
+  生きてくれてありがとう
+  君がいてくれてよかった
+-@boards.each do |board|
+  = link_to board_path(id: board.id) do
+    .card
+      .card_detail
+        = image_tag 'default-avatar.png'
+        %div
+          %p yamachan
+          %p 2020/9/9
+      .card_image
+        = image_tag 'sample.png'
+      .card_title
+        = board.name
+      .card_content
+        .card_heart
+          = image_tag 'heart.svg'          
+          %span 23
+      = yield

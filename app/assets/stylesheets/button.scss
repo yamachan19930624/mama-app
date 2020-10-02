@@ -1,0 +1,14 @@
+@import './variables';
+
+$btn-color: #79cc19;
+
+.btn_prymary{
+  background-color: $btn-color;
+  border: none;
+  width: 100%;
+  text-align: center;
+  color: white;
+  padding: 16px 0;
+  font-weight: bold;
+  font-size: 16px;
+}
