@@ -4,6 +4,7 @@
   %div
     %p yamachan
     %p= I18n.l(@board.created_at, format: :default)
+  - if user_signed_in?
     .board_edit
       = link_to '編集する', edit_board_path(@board) 
     .board_edit
