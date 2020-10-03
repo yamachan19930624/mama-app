@@ -11,7 +11,7 @@
         = image_tag 'default-avatar.png'
         %div
           %p yamachan
-          %p 2020/9/9
+          %p= I18n.l(board.created_at, format: :default)
       .card_image
         = image_tag 'sample.png'
       .card_title

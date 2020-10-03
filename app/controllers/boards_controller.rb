@@ -27,7 +27,7 @@ class BoardsController < ApplicationController
 
   def update
     @board = Board.find(params[:id])
-    if @board.update(board_paramsi)
+    if @board.update(board_params)
       redirect_to board_path(@board), notice: '変更したよ'
     else
       flash.now[:error] = '変更できなかったよ'
