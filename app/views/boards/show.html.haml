@@ -5,7 +5,9 @@
     %p yamachan
     %p 2020/09/22
     .board_edit
-      = link_to '編集する', edit_board_path(@board)
+      = link_to '編集する', edit_board_path(@board) 
+    .board_edit
+      = link_to '削除する', board_path(@board), data: { method: 'delete', confirm: '本当に削除しますか？'}
   %h1.board_title
     = @board.name  
   .board_content
