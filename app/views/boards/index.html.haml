@@ -11,7 +11,7 @@
         .card_detail
           = image_tag 'default-avatar.png'
           %div
-            %p yamachan
+            %p= board.user.display_name
             %p= I18n.l(board.created_at, format: :default)
         .card_image
           = image_tag 'sample.png'
