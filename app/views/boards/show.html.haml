@@ -2,9 +2,9 @@
   .board_detail
     = image_tag 'default-avatar.png'
   %div
-    %p yamachan
+    %p= @board.user.display_name
     %p= I18n.l(@board.created_at, format: :default)
-  - if user_signed_in?
+  - if user_signed_in? && current_user.has_written?(@board)
     .board_edit
       = link_to '編集する', edit_board_path(@board) 
     .board_edit
