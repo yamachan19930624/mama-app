@@ -19,29 +19,39 @@
           =link_to :back do
             = image_tag 'back-button.svg', class: 'header_back_button'
       .header_pageTitle P R A I S E
-      .dropdown
-        = image_tag 'default-avatar.png', class: 'header_avatar dropbtn'
-        .dropdown-content
-          %a{:href => "#"} プロフィール
-          %a{:href => "#"} ログアウト
-    .container_menu
-      .tabs
-        .tabs_item.active
-          .tabs_icon
-            = image_tag 'article.png'
-            新着記事
-        .tabs_item
-          .tabs_icon
-            = image_tag 'mypage.png'
-            タイムラ
-        .tabs_item
-          = link_to new_board_path do    
-            .tabs_icon
-              = image_tag 'new.png'      
-              投稿
-    - if flash.present?
-      .flash
-        - flash.each do |key, value|
-          %div{:class => key}= value
+      - if user_signed_in?
+        .dropdown
+          = image_tag 'default-avatar.png', class: 'header_avatar dropbtn'
+          .dropdown-content
+            %a{:href => "#"} プロフィール
+            = link_to 'ログアウト', destroy_user_session_path, data: { method: 'delete'}
+      - else
+        .dropdown
+          = image_tag 'default-avatar.png', class: 'header_avatar dropbtn'
+          .dropdown-content
+            = link_to 'ログイン', new_user_session_path 
+          
+         
+          
+      - if user_signed_in?
+        .container_menu
+          .tabs
+            .tabs_item.active
+              .tabs_icon
+                = image_tag 'article.png'
+                新着記事
+            .tabs_item
+              .tabs_icon
+                = image_tag 'mypage.png'
+                タイムラ
+            .tabs_item
+              = link_to new_board_path do    
+                .tabs_icon
+                  = image_tag 'new.png'      
+                  投稿
+        - if flash.present?
+          .flash
+            - flash.each do |key, value|
+              %div{:class => key}= value
     = yield
 
