@@ -14,7 +14,11 @@
 
   %body
     %header.header
-      %h2.header_pageTitle P R A I S E
+      .header_logos
+        - if !current_page?(root_path)
+          =link_to :back do
+            = image_tag 'back-button.svg', class: 'header_back_button'
+      .header_pageTitle P R A I S E
       .dropdown
         = image_tag 'default-avatar.png', class: 'header_avatar dropbtn'
         .dropdown-content
