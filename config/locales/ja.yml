@@ -10,6 +10,8 @@ ja:
       board:
         name: 'タイトル'
         description: 'つぶやきたいこと'
+      comment:
+        description: 'コメント'
   date:
     abbr_day_names:
     - 日
