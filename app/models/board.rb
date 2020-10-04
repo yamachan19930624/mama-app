@@ -20,5 +20,7 @@ class Board < ApplicationRecord
   validates :description, presence: true
   validates :description, length: {minimum: 5 }
 
+  has_many :comments, dependent:  :destroy
   belongs_to :user
+
 end
