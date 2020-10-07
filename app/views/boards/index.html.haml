@@ -3,13 +3,13 @@
     = image_tag 'header.png', class: 'header_cat'
     %p.header_pageTitle_second PRAISE
     %p.header_text みんなで褒めあおう！ 
-    生きてくれてありがとう
+    今日もありがとう
     君がいてくれてよかった
   -@boards.each do |board|
     = link_to board_path(id: board.id) do
       .card
         .card_detail
-          = image_tag 'default-avatar.png'
+          = image_tag board.user.avatar_image
           %div
             %p= board.user.display_name
             %p= I18n.l(board.created_at, format: :default)

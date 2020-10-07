@@ -5,8 +5,9 @@ Rails.application.routes.draw do
 
   resources :boards do
     resources :comments, only: [:new, :create]
-
+   
   end
-
+  resource :profile, only: [:show, :edit, :update]
+  #indexは複数を表示するものだからrouteは作られない
 
 end
