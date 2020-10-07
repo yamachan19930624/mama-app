@@ -13,12 +13,13 @@
           %div
             %p= board.user.display_name
             %p= I18n.l(board.created_at, format: :default)
-        .card_image
-          = image_tag 'sample.png'
+        - if board.eyecatch.attached?
+          .card_image
+            = image_tag board.eyecatch
         .card_title
           = board.name
         .card_content
           .card_heart
             = image_tag 'heart.svg'          
-            %span 23
+            %span= board.likes_count
       = yield

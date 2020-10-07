@@ -14,6 +14,8 @@
 #  index_boards_on_user_id  (user_id)
 #
 class Board < ApplicationRecord
+  has_one_attached :eyecatch
+
   validates :name, presence: true
   validates :name, length: { minimum: 3 }
 
@@ -21,6 +23,11 @@ class Board < ApplicationRecord
   validates :description, length: {minimum: 5 }
 
   has_many :comments, dependent:  :destroy
+  has_many :likes, dependent:  :destroy
   belongs_to :user
+
+  def likes_count
+    likes.count
+  end
 
 end
