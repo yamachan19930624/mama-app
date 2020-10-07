@@ -1,4 +1,7 @@
 .board
+  - if @board.eyecatch.attached?
+    .card_image
+      = image_tag @board.eyecatch
   .board_detail
     = image_tag  @board.user.avatar_image
   %div
@@ -13,8 +16,15 @@
     = @board.name  
   .board_content
     = @board.description
-  .board_heart
-    = image_tag 'heart.svg'
+  - if user_signed_in?
+    - if current_user.has_liked?(@board)
+      .board_heart
+        = link_to board_like_path(@board), data: { method: 'delete' } do
+          = image_tag 'heart-active.svg'
+    - else
+      .board_heart
+        = link_to board_like_path(@board), data: { method: 'post' } do
+          = image_tag 'heart.svg'
 
 .board_comment
   %h2 コメント一覧
