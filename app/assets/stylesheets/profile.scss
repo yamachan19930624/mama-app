@@ -1,0 +1,38 @@
+@import 'variables';
+
+$avatar-size: 40px;
+$header-padding-y: 16px;
+
+.profilePage{
+  margin-top: 160px;
+
+  
+
+  &_content{
+  
+ 
+  }
+}
+
+.profile_user{
+  
+  background-color: white;
+  
+  padding: 16px 16px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  position: relative;
+  height: 400px;
+}
+
+.profile_user_image{
+  img{
+    width: $avatar-size;
+    height: $avatar-size;
+    border-radius: 100%;
+  }
+}
+
+.profile_user_introduction{
+  overflow: auto;
+  margin-top: 10px;
+}
