@@ -1,0 +1,16 @@
+{
+  "name": "mama app",
+  "description": "This is mama-app",
+  "keywords": [],
+  "website": "",
+  "repository": "https://github.com/yamachan19930624/mama-app",
+  "env": {},
+  "addons": [
+    "heroku-postgresql:hobby-dev"
+  ],
+  "buildpacks": [{
+    "url": "heroku/nodejs"
+  }, {
+    "url": "heroku/ruby"
+  }]
+}
