@@ -1,0 +1,29 @@
+.profilePage
+  .profile_user
+    .profile_user_image
+      = image_tag current_user.avatar_image
+    .profile_content
+      .profile_name
+        #{current_user.display_name} (#{current_user.age} #{I18n.t("enum.genders.#{current_user.gender}")})
+        .profile_edit_button
+          = link_to 'edit', edit_profile_path
+    .profile_user_introduction
+      = current_user.profile&.introduction
+      
+
+  - current_user.boards.each do |board|
+    = link_to board_path(id: board.id) do
+      .card
+        .card_detail
+          = image_tag 'default-avatar.png'
+          %div
+            %p= board.user.display_name
+            %p= I18n.l(board.created_at, format: :default)
+        .card_image
+          = image_tag 'sample.png'
+        .card_title
+          = board.name
+        .card_content
+          .card_heart
+            = image_tag 'heart.svg'          
+            %span 23

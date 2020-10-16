@@ -1,0 +1,11 @@
+.container
+  -@comment.errors.full_messages.each do |message|
+    %li.error_message= message
+  = form_with(model: @comment, url: board_comments_path(@comment.board), local: true) do |f|
+    %div.form_area
+      %div
+        = f.label :description, 'なんてコメントする？',class: 'form_text'
+      %div  
+        = f.text_area :description, class: 'form_description'
+      = f.submit 'コメントする',  class: 'btn_prymary'
+        
